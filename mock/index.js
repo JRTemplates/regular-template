@@ -1,0 +1,46 @@
+/**
+ * @author 熊旭
+ * @description 数据mock
+ */
+var express = require('express')
+var bodyParser = require('body-parser')
+
+var fs = require('fs')
+// var cookieParser = require('cookie-parser')
+// var multer = require('multer')
+
+var app = express()
+
+var router = express.Router()
+var pwd = process.cwd() + '/mock'
+// app.use(bodyParser.text())
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+)
+// 处理数据的mock
+const getBack = (req, res, next) => {
+  let url = pwd + req.url.replace(/\.htm\S*/, '.js')
+  if(url.indexOf(".js") === -1){
+    return;
+  }
+  fs.stat(url, (err, stats) => {
+    if (err) {
+      res.send({
+        success: true,
+        code: null,
+        message: 'mock路径(' + err.path + ')不存在,采用通用处理方式'
+      })
+      res.end()
+    } else if (stats.isFile()) {
+      let data = require(url)(req)
+      res.send(data)
+      res.end()
+    }
+  })
+}
+router.use(getBack)
+app.use(router)
+module.exports = router

@@ -1,0 +1,113 @@
+html,
+body {
+    margin: 0px;
+    color: #333;
+    padding: 0px;
+}
+.f-cl{
+    clear:both;
+}
+.header {
+    font-family: arial, 'Microsoft Yahei', sans-serif;
+    height: 80px;
+    line-height: 80px;
+    background: #fff;
+    .title {
+        font-size: 20px;
+        margin-left: 40px;
+        .title-txt {
+            border-left: 1px solid #dbdbdb;
+            padding: 5px 31px;
+            margin-left: 33px;
+            color: #666;
+        }
+    }
+    .userinfo {
+        margin-right: 50px;
+        a {
+            color: #333;
+            display: inline-block;
+            margin-left: 30px;
+        }
+    }
+    .top-line {
+        height: 15px;
+        background: #eee;
+    }
+}
+
+.body {
+    padding: 0;
+    overflow: visible;
+    .menu {
+        position: absolute;
+        left: 0px;
+        top: 95px;
+        bottom: 5px;
+        width: 200px;
+        overflow: auto;
+        background: #fff;
+        border-right: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        color: #333;
+        a {
+            color: #333;
+        }
+    }
+    .main {
+        position: absolute;
+        left: 201px;
+        top: 95px;
+        overflow: auto;
+        bottom: 5px;
+        right: 0px;
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+        padding: 0 20px 0 30px;
+    }
+    .form-item {
+        margin: 15px 0;
+        .label {
+            width: 100px;
+            font-size: 14px;
+            color: #333;
+            line-height: 32px;
+            height: 32px;
+            display: inline-block;
+        }
+        .labelMar {
+            margin-left: 150px;
+        }
+        .searchBtn {
+            margin-left: 104px;
+        }
+        .error-info {
+            color: red;
+            margin-left: 10px;
+        }
+        .tips {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #999;
+        }
+    }
+    table {
+        td {
+           word-break: break-all;
+        }
+        a {
+            cursor: default;
+        }
+        a.link {
+            cursor: pointer;
+            color: #006cff;
+        }
+        .empty-txt {
+            font-size: 14px;
+        }
+        .note {
+            overflow: hidden;
+            max-height: 50px;
+        }
+    }
+}

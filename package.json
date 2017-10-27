@@ -1,0 +1,50 @@
+{
+  "name": "epay-newfinance-static",
+  "version": "1.0.0",
+  "description": "网易支付结算中心",
+  "main": "index.js",
+  "scripts": {
+    "dev": "supervisor -i ./webApp/ build/dev-server.js",
+    "build": "rm -rf ./dist & webpack --display-error-details --color --progress",
+    "typings": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@g.hz.netease.com:22222/finance-acc/epay-newfinance-static.git"
+  },
+  "author": "hzxiongxu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/webpack-env": "^1.13.2",
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.0",
+    "connect-history-api-fallback": "^1.4.0",
+    "copy-webpack-plugin": "^4.2.0",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "file-loader": "^1.1.5",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "http-proxy-middleware": "^0.17.4",
+    "jr-ui": "0.0.1",
+    "node-sass": "^4.5.3",
+    "open": "0.0.5",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "regularjs": "^0.4.3",
+    "sass-loader": "^6.0.6",
+    "stateman": "^0.3.0-beta.2",
+    "style-loader": "^0.19.0",
+    "ts-loader": "^3.0.5",
+    "typescript": "^2.3.2",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.20.0"
+  },
+  "dependencies": {
+    "awesome-typescript-loader": "^3.2.3",
+    "source-map-loader": "^0.2.2",
+    "whatwg-fetch": "^2.0.3"
+  }
+}

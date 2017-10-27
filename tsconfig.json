@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "outDir": "/dist",
+        "allowJs": true,
+        // 如果为true，那么所有变量都需要严格定义，flase的话如果编译器无法根据变量的使用来判断类型时，将用any类型代替
+        "noImplicitAny": false,
+        "removeComments": false,
+        "sourceMap": true
+    },
+    "lib": [
+        "dom"
+    ],
+    "exclude": [
+        "node_modules",
+        "build"
+    ]
+}
