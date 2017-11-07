@@ -9,7 +9,9 @@ export default {
     template: "<jr-sidebar uniqueOpened={uniqueOpened} showRetract={false} top={ '15px'} menus={menus} ref='slider' />",
     config() {
         this.data.menus = menuConfig.menulist
+        this.routerObj = {};
         this.createRoute(menuConfig.menulist);
+        this.stateMan.state(this.routerObj).start();
     },
     init(){
         let hash = window.location.hash
@@ -31,7 +33,6 @@ export default {
      */
     createRoute(list) {
         this.stateMan = new stateman()
-        this.routerObj = {};
         list.forEach(item => {
             if (item.children) {
                 this.createRoute(item.children);
@@ -61,7 +62,6 @@ export default {
                 }
             }
         })
-        this.stateMan.state(this.routerObj).start();
     },
     // 更改内容
     changeView: function (item) {
