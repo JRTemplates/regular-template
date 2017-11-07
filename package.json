@@ -1,7 +1,7 @@
 {
   "name": "epay-newfinance-static",
   "version": "1.0.0",
-  "description": "网易支付结算中心",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "supervisor -i ./webApp/ build/dev-server.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@g.hz.netease.com:22222/finance-acc/epay-newfinance-static.git"
+    "url": ""
   },
   "author": "hzxiongxu",
   "license": "ISC",

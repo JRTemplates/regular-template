@@ -1,3 +1,3 @@
 export default{
-    template:"222222"
+    template:"xx" 
 }

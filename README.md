@@ -1,9 +1,3 @@
-## regular项目的模板文件
-### 技术栈
-+ [regularjs](https://github.com/regularjs/regular)
-+ [jr-ui](https://github.com/xxyj/JRUI)
-+ typescript
-+ sass
-+ webpack
-+ fetch
-+ express
+** 结算中心
++run: npm run dev
++build: npm run build

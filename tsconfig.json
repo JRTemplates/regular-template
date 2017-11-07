@@ -12,6 +12,9 @@
     "lib": [
         "dom"
     ],
+    "files": [
+        "./custom.d.ts"
+    ],
     "exclude": [
         "node_modules",
         "build"

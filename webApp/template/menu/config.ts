@@ -8,12 +8,14 @@ export default {
         icon: '',
         open: true,
         children: [{
-            title: '测试子1',
+            title: '测试子11',
             url: '#test1',
             module: require('../page/test1.ts')
         }, {
             title: '测试子2',
             url: '#test2',
+            // 进入页面默认选中
+            currentSelected:true,
             module: require('../page/test1.ts')
         }]
     },{
@@ -23,11 +25,11 @@ export default {
         children: [{
             title: '测试子3',
             url: '#test3',
-            module: ''
+            module: require('../page/test1.ts')
         }, {
             title: '测试子4',
             url: '#test4',
-            module: ''
+            module: require('../page/test1.ts')
         }]
     }]
 }

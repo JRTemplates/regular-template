@@ -36,28 +36,29 @@ var port = '8384'
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
-  stats: {
-    colors: true,
-  },
-  hot: true,
-  quiet: true
+  //加了这个属性之后一开始页面刷不出来
+  // stats: {
+  //   colors: true,
+  // },
+  // quiet: true
 })
-// 强制刷新页面
-// compiler.plugin('compilation', function(compilation) {
-//   compilation.plugin('html-webpack-plugin-after-emit', function(data, cb) {
-//     hotMiddleware.publish({ action: 'reload' })
-//     cb()
-//   })
-// })
 
 // handle fallback for HTML5 history API
 // 这个插件是用来解决单页面应用，点击刷新按钮和通过其他search值定位页面的404错误，未指定的时候会默认只想index.html
 app.use(require('connect-history-api-fallback')())
 app.use(devMiddleware)
-app.use(hotMiddleware(compiler, {}))
+app.use(hotMiddleware(compiler, {heartbeat: 2000}))
 app.use(express.static(__dirname + '/webapp'));
 // 数据mock
 app.use(mock)
+
+// 强制刷新页面 webpack3会报错
+// compiler.plugin('compilation', function(compilation) {
+//   compilation.plugin('html-webpack-plugin-after-emit', function(data, cb) {
+//     //hotMiddleware.publish({ action: 'reload' })
+//     cb()
+//   })
+// })
 
 Object.keys(proxyTable).forEach(function(context) {
   var options = proxyTable[context]

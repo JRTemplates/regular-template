@@ -142,7 +142,10 @@ var plugins = [
 if (!online) {
   plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NamedModulesPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
+    // webpack3 加这东西热部署有问题
+    //new webpack.optimize.ModuleConcatenationPlugin(),
   );
 }
 

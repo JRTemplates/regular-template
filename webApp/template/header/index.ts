@@ -1,22 +1,20 @@
 // import  html from 'index.html'
 import './index.scss'
 import * as JR from 'jr-ui'
+import * as html from './index.html'
+import * as params from '../../../package.json'
 export default {
-    template: `<div class="title f-fl">
-        <span class="title-txt">结算系统</span>
-        </div>
-        <div class="f-fr userinfo">
-            <span>欢迎您 {user}</span>
-            <a href="javascript:void(0)" style="color:#006cff" on-click={this.exit()}>退出</a>
-        </div>
-        <div class="top-line f-cl"></div>`,
+    template: html,
     data: {
-        user: ''
+        user: '',
+        description:  (<any>params).description
     },
     config: function () {
     },
     init: function () {
         this.supr()
+        this.$inject("#header");
+        this.$update();
     },
     exit: function () {
         JR.Modal.confirm('确认退出吗?').$on('ok', function () {

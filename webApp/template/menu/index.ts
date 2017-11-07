@@ -9,8 +9,20 @@ export default {
     template: "<jr-sidebar uniqueOpened={uniqueOpened} showRetract={false} top={ '15px'} menus={menus} ref='slider' />",
     config() {
         this.data.menus = menuConfig.menulist
-
         this.createRoute(menuConfig.menulist);
+    },
+    init(){
+        let hash = window.location.hash
+        hash = hash.length > 0 ? hash.substr(1) : hash
+        if (hash.indexOf('?') !== -1) {
+            hash = hash.substr(0, hash.indexOf('?'))
+        }
+        if (!this.routerObj[hash]) {
+             window.location.href = '#'+this.m;
+        }
+        this.supr();
+        this.$inject("#menu");
+        this.$update();
     },
     currentModule: null,
     stateMan:null,
@@ -19,14 +31,17 @@ export default {
      */
     createRoute(list) {
         this.stateMan = new stateman()
-        var routerObj = {};
+        this.routerObj = {};
         list.forEach(item => {
             if (item.children) {
                 this.createRoute(item.children);
                 return;
             }
             var m = item.url.slice(1)
-            routerObj[m] = {
+            if(item.currentSelected){
+                this.m = m;
+            }
+            this.routerObj[m] = {
                 enter: () => {
                     if (!item.module) {
                         return
@@ -46,7 +61,7 @@ export default {
                 }
             }
         })
-        this.stateMan.state(routerObj).start();
+        this.stateMan.state(this.routerObj).start();
     },
     // 更改内容
     changeView: function (item) {
