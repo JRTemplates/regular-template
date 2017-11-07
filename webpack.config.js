@@ -103,6 +103,10 @@ var plugins = [
     {
       from: path.join(__dirname, "node_modules/jr-ui/dist/fonts"),
       to: path.join(__dirname, "dist/fonts")
+    },
+    {
+      from: path.join(__dirname, "webApp/images/ico"),
+      to: path.join(__dirname, "dist")
     }
   ]),
   new webpack.optimize.CommonsChunkPlugin({
