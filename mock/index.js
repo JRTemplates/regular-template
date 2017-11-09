@@ -35,7 +35,7 @@ const getBack = (req, res, next) => {
       })
       res.end()
     } else if (stats.isFile()) {
-      let data = require(url)(req)
+      let data = require(url)
       res.send(data)
       res.end()
     }

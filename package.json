@@ -1,20 +1,21 @@
 {
   "name": "epay-newfinance-static",
   "version": "1.0.0",
-  "description": "",
+  "description": "结算中心",
   "main": "index.js",
   "scripts": {
-    "dev": "supervisor -i ./webApp/ build/dev-server.js",
+    "dev": "supervisor -i ./webApp/ -p 1000 build/dev-server.js",
     "build": "rm -rf ./dist & webpack --display-error-details --color --progress",
     "typings": "typings install"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "ssh://git@g.hz.netease.com:22222/finance-acc/epay-newfinance-static.git"
   },
   "author": "hzxiongxu",
   "license": "ISC",
   "devDependencies": {
+    "@types/es6-promise": "0.0.33",
     "@types/webpack-env": "^1.13.2",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
@@ -27,7 +28,7 @@
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.4",
-    "jr-ui": "0.0.2",
+    "jr-ui": "0.0.3",
     "node-sass": "^4.5.3",
     "open": "0.0.5",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -44,7 +45,6 @@
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.2.3",
-    "source-map-loader": "^0.2.2",
-    "whatwg-fetch": "^2.0.3"
+    "source-map-loader": "^0.2.2"
   }
 }
