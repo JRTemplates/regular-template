@@ -35,6 +35,7 @@ const getBack = (req, res, next) => {
       })
       res.end()
     } else if (stats.isFile()) {
+      require.cache[require.resolve(url)] && delete require.cache[require.resolve(url)]
       let data = require(url)
       res.send(data)
       res.end()

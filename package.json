@@ -4,7 +4,7 @@
   "description": "结算中心",
   "main": "index.js",
   "scripts": {
-    "dev": "supervisor -i ./webApp/ -p 1000 build/dev-server.js",
+    "dev": "supervisor -i ./webApp/,./mock/ -p 1000 build/dev-server.js",
     "build": "rm -rf ./dist & webpack --display-error-details --color --progress",
     "typings": "typings install"
   },

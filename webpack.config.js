@@ -14,7 +14,9 @@ if (currentTarget === "build") {
 var resolve = {
   extensions: [".js", ".ts", ".sass"],
   // 加个别名，加快库的检索速度
-  alias: {}
+  alias: {
+    webApp: path.join(__dirname, "./webApp")
+  }
 };
 var entry = {};
 if (online) {
