@@ -49,6 +49,7 @@ var output = {
 var rules = [
   {
     test: /\.html$/,
+    exclude: path.resolve(__dirname, 'webApp/index.html'),
     use: 'html-loader',
   },
   {
@@ -132,7 +133,7 @@ var plugins = [
      * */
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    titme: pkg.title,
+    title: pkg.title,
     template: path.join(__dirname, './webApp/index.html'),
     inject: true,
     // 需要依赖的模块
