@@ -1,0 +1,13 @@
+<jr-table source={source} loading={loading} fixedHeader={fixedHeader} on-checkchange={this.onCheck($event)}>
+    {#if enableCheckAll}
+       <jr-table-col width=50 placeholder="" type="check" enableCheckAll  />
+    {/if}
+    {#list source as item}
+       {#if item.name}
+         <jr-table-col name={item.name} key={item.key} />
+       {/if}
+    {/if}
+    {#if pager} 
+    <jr-pager current={current} sumTotal={sumTotal}  pageSize={pageSize}  on-paging={this.onPaging($event)} />
+    {/if}
+</jr-table>
