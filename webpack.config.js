@@ -7,6 +7,7 @@ var path = require('path'),
   currentTarget = process.env.npm_lifecycle_event,
   OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'),
   pkg = require('./package.json'),
+  HashedModuleIdsPlugin = require('./HashedModuleIdsPlugin')
   online = false;
 
 if (currentTarget === 'build') {
@@ -23,7 +24,7 @@ var entry = {};
 if (online) {
   entry = {
     index: path.join(__dirname, './webApp/index.ts'),
-    regular: ['regularjs', 'stateman'],
+    regular: ['regularjs','stateman'],
     JR: ['jr-ui'],
   };
 } else {
@@ -117,8 +118,14 @@ var plugins = [
     names: ['JR', 'regular'],
     minChunks: Infinity,
   }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['JR', 'regular']
+    }),
   new OptimizeCSSPlugin(),
   new webpack.DefinePlugin({}),
+  new HashedModuleIdsPlugin(),
 
   /*
      * 提取css文件到单独的文件中
@@ -137,7 +144,7 @@ var plugins = [
     template: path.join(__dirname, './webApp/index.html'),
     inject: true,
     // 需要依赖的模块
-    chunks: ['regular', 'JR', 'index'],
+    chunks: ['manifest','regular', 'JR', 'index'],
     // chunksSortMode: "none",
     minify: {
       removeComments: true,
