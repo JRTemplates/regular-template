@@ -1,16 +1,15 @@
 {
-  "name": "epay-newfinance-static",
+  "name": "",
   "version": "1.0.0",
-  "description": "结算中心",
+  "description": "",
+  "style": "default",
   "main": "index.js",
   "scripts": {
-    "dev": "supervisor -i ./webApp/,./mock/ -p 1000 build/dev-server.js",
-    "build": "rm -rf ./dist & webpack --display-error-details --color --progress",
+    "dev":
+      "supervisor -i ./webApp/,./mock/,./codeOnline -p 1000 build/dev-server.js",
+    "build":
+      "rm -rf ./dist & webpack --display-error-details --color --progress",
     "typings": "typings install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@g.hz.netease.com:22222/finance-acc/epay-newfinance-static.git"
   },
   "author": "hzxiongxu",
   "license": "ISC",
