@@ -7,7 +7,7 @@
 
 ### 技术细节
 
-webpack3+regularjs+jr-ui+npm+typescript+SPA
+webpack3+regularjs+jr-ui+npm+typescript+sass+SPA
 
 ### 使用方式
 + run: npm run dev
